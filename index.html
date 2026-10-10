@@ -93,6 +93,8 @@
 
 <!-- Stream Deck Section (Buttons redirect to spotify songs) Start -->
 <section id="deck-section">
+  <img class="deck-bg" src="Media/Backrounds/deck-spiral-stairs.jpg" alt="" aria-hidden="true">
+  <div class="deck-bg-scrim"></div>
   <div class="wrap">
     <div class="section-head">
       <h2>Beviito's Tracks</h2>
@@ -235,20 +237,41 @@
       </div>
       <!-- Stream Deck Section (Buttons redirect to spotify songs) End -->
 
-      <!-- Stream Deck Beviito Photo (Song Name Display) Start -->
-      <div class="photo-panel">
-        <img src="https://i.scdn.co/image/ab6761610000e5eb178e3755dcd2a0afcef9afc3" alt="Beviito">
-        <div class="live-pill"><span class="dot"></span><span>On stage</span></div>
-        <div class="photo-caption">
-          <div class="label" id="cdjTag">tech house · 126</div>
-          <div class="cdj-track-title" id="cdjTitle">Concrete Bloom</div>
-          <div class="cdj-track-meta">now loaded</div>
+      <!-- Player (Shows The Selected Track) Start -->
+      <div class="player" id="djDeck" data-state="loaded">
+        <div class="player-screen">
+          <div class="player-head">
+            <img class="player-cover" id="djThumb" src="" alt="">
+            <div class="player-meta">
+              <div class="player-title" id="djTitle"><span class="player-title-run">Expekit</span></div>
+              <div class="player-sub" id="djMeta">2022 · single</div>
+              <div class="player-chips">
+                <span class="player-chip" id="djCount">01 / 01</span>
+                <span class="player-chip" id="djMode">Preview</span>
+                <span class="player-state"><i></i><b id="djStatus">Loaded</b></span>
+              </div>
+            </div>
+            <div class="player-time">
+              <div><small>Time</small><b id="djTime">0:00</b></div>
+              <div><small>Left</small><b class="dim" id="djRemain">-3:30</b></div>
+            </div>
+          </div>
+          <div class="player-zoom" aria-hidden="true"><canvas id="djZoom"></canvas><div class="player-playhead"></div></div>
+          <div class="player-over" aria-hidden="true"><canvas id="djOverDim"></canvas><div class="player-over-lit" id="djOverLit"><canvas id="djOverBright"></canvas></div><div class="player-over-pos"></div></div>
         </div>
+        <div class="player-controls">
+          <button type="button" class="player-btn" id="djPrev" aria-label="Previous track"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6z"/><path d="M19 6.2v11.6a.8.8 0 0 1-1.25.66L9.6 12.66a.8.8 0 0 1 0-1.32l8.15-5.8A.8.8 0 0 1 19 6.2z"/></svg></button>
+          <button type="button" class="player-btn player-play" id="djPlay" aria-label="Play this track" aria-pressed="false"><svg class="icon-play" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="icon-pause" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+          <button type="button" class="player-btn" id="djNext" aria-label="Next track"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2z"/><path d="M5 6.2v11.6a.8.8 0 0 0 1.25.66l8.15-5.8a.8.8 0 0 0 0-1.32l-8.15-5.8A.8.8 0 0 0 5 6.2z"/></svg></button>
+        </div>
+        <a class="btn-primary player-link" id="djLink" href="#" target="_blank" rel="noopener">Add To My Playlist</a>
+        <div class="player-embed" aria-hidden="true"><div id="djEmbed"></div></div>
       </div>
+      <!-- Player (Shows The Selected Track) End -->
     </div>
   </div>
 </section>
-<!-- Stream Deck Beviito Photo (Song Name Display) End -->
+<!-- Stream Deck Section End -->
 
 <!-- Beviito Logo Zoom (Media Spacer) Start -->
 <div class="intro-spacer" id="introSpacer">
@@ -643,35 +666,22 @@
     Numbers.forEach(Counter => Observer.observe(Counter));
   })();
 
-  // Caption: the "now loaded" caption changes when a tile is clicked
-  (function StartCaption()
-  {
-    const Title = document.getElementById('cdjTitle');
-    const Tag = document.getElementById('cdjTag');
-    if (!Title || !Tag) return;
-
-    document.querySelectorAll('.tile.has-cover').forEach(Tile =>
-    {
-      Tile.addEventListener('click', () =>
-      {
-        Title.textContent = Tile.dataset.title;
-        Tag.textContent = Tile.dataset.tag;
-      });
-    });
-  })();
-
-  // Stream deck: pages of tiles with dots, swipe and the platform buttons
+  // Stream deck: pages of tiles with dots, swipe, the platform buttons and the player
   (function StartDeck()
   {
     const Grid = document.getElementById('tileGrid');
     const DotsWrap = document.getElementById('deckDots');
     const Switcher = document.getElementById('platformSwitch');
-    if (!Grid || !DotsWrap || !Switcher) return;
+    const Deck = document.getElementById('djDeck');
+    if (!Grid || !DotsWrap || !Switcher || !Deck) return;
 
     const Tiles = Array.from(Grid.querySelectorAll('.tile'));
     const PerPage = 12;
     const PageCount = Math.ceil(Tiles.length / PerPage);
+    const ReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const PlatformNames = { spotify: 'Spotify', ytm: 'YouTube Music', apple: 'Apple Music' };
     let Page = 0;
+    let Platform = 'spotify';
 
     // The Dots are one button per page
     const Dots = [];
@@ -710,12 +720,339 @@
       if (Math.abs(Distance) > 50) ShowPage(Page + (Distance < 0 ? 1 : -1));
     }, { passive: true });
 
+    // Player: the elements that show the loaded track
+    const Title = document.getElementById('djTitle');
+    const TitleRun = Title.firstElementChild;
+    const Meta = document.getElementById('djMeta');
+    const Thumb = document.getElementById('djThumb');
+    const Status = document.getElementById('djStatus');
+    const Mode = document.getElementById('djMode');
+    const Count = document.getElementById('djCount');
+    const TimeText = document.getElementById('djTime');
+    const RemainText = document.getElementById('djRemain');
+    const Link = document.getElementById('djLink');
+    const Zoom = document.getElementById('djZoom');
+    const OverDim = document.getElementById('djOverDim');
+    const OverBright = document.getElementById('djOverBright');
+    const OverLit = document.getElementById('djOverLit');
+    const OverPosition = Deck.querySelector('.player-over-pos');
+    const OverWrap = OverDim.parentNode;
+    const PlayButton = document.getElementById('djPlay');
+    const PixelsPerSecond = 46;
+    const FallbackLength = 30;
+    let Current = 0;
+    let Playing = false;
+    let Seed = 1;
+    let Length = FallbackLength;
+    let Elapsed = 0;
+    let Frame = null;
+    let Stamp = 0;
+
+    // The MakeRandom function gives a repeatable list of random numbers, so the same track always draws the same waveform
+    function MakeRandom(Start)
+    {
+      let Value = Start * 9301 + 49297;
+      return function ()
+      {
+        Value = (Value * 9301 + 49297) % 233280;
+        return Value / 233280;
+      };
+    }
+
+    // The Loudness function says how loud the waveform is at one point of the track
+    function Loudness(Index, Total, Random)
+    {
+      const Place = Index / Total;
+      let Base = 0.95;
+      if (Place < 0.04) Base = 0.4;
+      else if (Place < 0.2) Base = 0.6 + Place * 1.5;
+      else if (Math.sin(Place * 18) > 0.55) Base = 0.42;
+      const Wobble = 0.55 + 0.45 * Math.abs(Math.sin(Index / 6.5 + Random() * 2));
+      return Math.min(1, Math.max(0.1, Base * Wobble * (0.7 + Random() * 0.5)));
+    }
+
+    // The DrawZoom function draws the big scrolling waveform, one bar every five pixels
+    function DrawZoom()
+    {
+      const Width = Math.round(Length * PixelsPerSecond);
+      const Height = Zoom.parentNode.clientHeight || 86;
+      Zoom.width = Width;
+      Zoom.height = Height;
+      Zoom.style.width = Width + 'px';
+      const Pen = Zoom.getContext('2d');
+      const Random = MakeRandom(Seed);
+      const Bars = Math.floor(Width / 5);
+      for (let I = 0; I < Bars; I++)
+      {
+        const Level = Loudness(I, Bars, Random);
+        const BarHeight = Level * Height * 0.9;
+        Pen.fillStyle = Level > 0.75 ? '#e8501c' : Level > 0.45 ? '#c4411a' : '#7e3015';
+        Pen.fillRect(I * 5, (Height - BarHeight) / 2, 4, BarHeight);
+        Pen.fillStyle = Level > 0.75 ? '#ffe3d2' : '#f0b48f';
+        Pen.fillRect(I * 5, (Height - BarHeight * 0.5) / 2, 4, BarHeight * 0.5);
+      }
+    }
+
+    // The DrawOverview function draws the small strip that shows the whole track, once dim and once bright
+    function DrawOverview()
+    {
+      const Width = OverWrap.clientWidth || 560;
+      const Height = OverWrap.clientHeight || 34;
+      [OverDim, OverBright].forEach((Canvas, Layer) =>
+      {
+        Canvas.width = Width * 2;
+        Canvas.height = Height * 2;
+        const Pen = Canvas.getContext('2d');
+        const Random = MakeRandom(Seed);
+        const Bars = Math.floor(Width / 3);
+        for (let I = 0; I < Bars; I++)
+        {
+          const Level = Loudness(I, Bars, Random);
+          const BarHeight = Level * Height * 1.5;
+          Pen.fillStyle = Layer ? (Level > 0.75 ? '#ffd0b0' : '#e8501c') : 'rgba(255,255,255,0.3)';
+          Pen.fillRect(I * 6, (Height * 2 - BarHeight) / 2, 4, BarHeight);
+        }
+      });
+    }
+
+    // The FormatTime function turns seconds into minutes and seconds
+    function FormatTime(Seconds)
+    {
+      const Whole = Math.max(0, Math.floor(Seconds));
+      return Math.floor(Whole / 60) + ':' + ('0' + (Whole % 60)).slice(-2);
+    }
+
+    // The Render function moves the waveforms and the clock to where the song is
+    function Render()
+    {
+      const Percent = (Math.min(1, Elapsed / Length) * 100) + '%';
+      Zoom.style.transform = 'translateX(' + (-Elapsed * PixelsPerSecond).toFixed(2) + 'px)';
+      OverLit.style.setProperty('--p', Percent);
+      OverPosition.style.setProperty('--p', Percent);
+      TimeText.textContent = FormatTime(Elapsed);
+      RemainText.textContent = '-' + FormatTime(Length - Elapsed);
+    }
+
+    // The Tick function runs every frame while a song plays and moves the waveform and the clock along
+    function Tick(Now)
+    {
+      if (Playing && !Buffering) Elapsed += Math.min((Now - Stamp) / 1000, 0.1);
+      Elapsed = Math.min(Elapsed, Length);
+      Stamp = Now;
+      Render();
+      Frame = Playing ? requestAnimationFrame(Tick) : null;
+    }
+
+    // The SetState function changes between loaded, playing and paused
+    function SetState(State)
+    {
+      Playing = State === 'playing';
+      Deck.dataset.state = State;
+      Status.textContent = State.charAt(0).toUpperCase() + State.slice(1);
+      PlayButton.setAttribute('aria-pressed', Playing ? 'true' : 'false');
+      PlayButton.setAttribute('aria-label', Playing ? 'Pause' : 'Play this track');
+      if (Playing && Frame === null)
+      {
+        Stamp = performance.now();
+        Frame = requestAnimationFrame(Tick);
+      }
+    }
+
+    // The DrawTrack function draws both waveforms again for the current length
+    function DrawTrack()
+    {
+      DrawZoom();
+      DrawOverview();
+      Render();
+    }
+
+    // The UpdateSource function points the Add To My Playlist button at the chosen platform
+    function UpdateSource()
+    {
+      Link.href = Tiles[Current].dataset[Platform] || Tiles[Current].href;
+      Link.setAttribute('aria-label', 'Add To My Playlist on ' + PlatformNames[Platform]);
+    }
+
+    // Spotify: the iFrame API plays the song through a hidden player, whatever platform the button points at
+    let Controller = null;
+    let Wanted = false;
+    let Loading = false;
+    let Advance = false;
+    let Buffering = false;
+    let TitleText = '';
+
+    // The ToUri function turns a Spotify link into the spotify:type:id form the API wants
+    function ToUri(Address)
+    {
+      const Parts = (Address || '').replace(/^https?:\/\/open\.spotify\.com\//, '').split('?')[0].split('/');
+      return Parts.length >= 2 ? 'spotify:' + Parts[0] + ':' + Parts[1] : '';
+    }
+
+    // The OnUpdate function receives the playback news from Spotify and keeps the waveform in step
+    function OnUpdate(Data)
+    {
+      if (!Data || !Data.data) return;
+      const Info = Data.data;
+      if (Info.playingURI && Info.playingURI !== ToUri(Tiles[Current].dataset.spotify)) return;
+      const Seconds = (Info.duration || 0) / 1000;
+      if (Seconds > 1 && Math.abs(Seconds - Length) > 1)
+      {
+        Length = Seconds;
+        Mode.textContent = Seconds > 40 ? 'Full track' : 'Preview';
+        DrawTrack();
+      }
+      // The clock only jumps to Spotify's position when it has drifted, otherwise it keeps running smoothly
+      const Position = (Info.position || 0) / 1000;
+      Buffering = !!Info.isBuffering;
+      if (Info.isPaused || Buffering || Math.abs(Position - Elapsed) > 0.4) Elapsed = Position;
+      Stamp = performance.now();
+      if (Info.isPaused)
+      {
+        if (Seconds > 1 && Info.position >= Info.duration - 400 && Advance)
+        {
+          Advance = false;
+          LoadTrack(Current + 1, false, true);
+          return;
+        }
+        SetState(Elapsed > 0.5 ? 'paused' : 'loaded');
+      }
+      else
+      {
+        Advance = true;
+        Wanted = false;
+        SetState('playing');
+      }
+      Render();
+    }
+
+    // The StartSpotify function loads the Spotify script once and makes the hidden controller
+    function StartSpotify()
+    {
+      if (Loading) return;
+      Loading = true;
+      window.onSpotifyIframeApiReady = (Api) =>
+      {
+        Api.createController(document.getElementById('djEmbed'), { width: '100%', height: 80, uri: ToUri(Tiles[Current].dataset.spotify) }, (Made) =>
+        {
+          Controller = Made;
+          Controller.addListener('playback_update', OnUpdate);
+          Controller.addListener('ready', () =>
+          {
+            if (Wanted) Controller.play();
+          });
+          if (Wanted) Controller.play();
+        });
+      };
+      const Script = document.createElement('script');
+      Script.src = 'https://open.spotify.com/embed/iframe-api/v1';
+      Script.async = true;
+      Script.onerror = () => { Loading = false; };
+      document.body.appendChild(Script);
+    }
+
+    // The FitTitle function shows the song name, and scrolls it from right to left when it is too long to fit
+    function FitTitle(Text)
+    {
+      TitleText = Text;
+      Title.classList.remove('scrolls');
+      TitleRun.textContent = Text;
+      if (TitleRun.offsetWidth <= Title.clientWidth) return;
+      TitleRun.textContent = Text + '\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0' + Text + '\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0';
+      Title.style.setProperty('--run', (TitleRun.offsetWidth / 2 / 55).toFixed(1) + 's');
+      Title.classList.add('scrolls');
+    }
+
+    // The LoadTrack function puts a track on the player, and starts it if Go is true
+    function LoadTrack(Index, Scroll, Go)
+    {
+      Current = (Index + Tiles.length) % Tiles.length;
+      const Tile = Tiles[Current];
+      const Picture = Tile.querySelector('.tile-cover');
+      Tiles.forEach(Other => Other.classList.toggle('active', Other === Tile));
+      FitTitle(Tile.dataset.title);
+      Meta.textContent = Tile.dataset.tag;
+      Count.textContent = ('0' + (Current + 1)).slice(-2) + ' / ' + ('0' + Tiles.length).slice(-2);
+      if (Picture) Thumb.src = Picture.src;
+      Seed = Tile.dataset.title.length * 7 + Current;
+      Length = FallbackLength;
+      Elapsed = 0;
+      Advance = false;
+      Buffering = false;
+      Mode.textContent = 'Preview';
+      DrawTrack();
+      SetState('loaded');
+      UpdateSource();
+      Wanted = Go;
+      if (Controller)
+      {
+        Controller.loadUri(ToUri(Tile.dataset.spotify));
+        // Spotify can ignore a play sent the moment a song loads, so it is sent again shortly after
+        if (Go) [150, 700, 1500].forEach(Delay => setTimeout(() => { if (Wanted && !Playing) Controller.play(); }, Delay));
+      }
+      else if (Go) StartSpotify();
+      if (Scroll && window.matchMedia('(max-width: 860px)').matches) Deck.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Tiles: a tap plays the track here, a middle or modified click still opens the song
+    Tiles.forEach((Tile, I) =>
+    {
+      Tile.addEventListener('click', (event) =>
+      {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey) return;
+        event.preventDefault();
+        LoadTrack(I, true, true);
+      });
+    });
+
+    // Controls: play and pause, previous and next
+    PlayButton.addEventListener('click', () =>
+    {
+      if (Controller)
+      {
+        if (Playing) Controller.pause();
+        else if (Deck.dataset.state === 'paused') Controller.resume();
+        else
+        {
+          Wanted = true;
+          Controller.play();
+        }
+      }
+      else
+      {
+        Wanted = true;
+        StartSpotify();
+      }
+    });
+    document.getElementById('djPrev').addEventListener('click', () => LoadTrack(Current - 1, false, Playing));
+    document.getElementById('djNext').addEventListener('click', () => LoadTrack(Current + 1, false, Playing));
+
+    // Visible: the Spotify script is only loaded once the player scrolls into view
+    if (window.IntersectionObserver)
+    {
+      const Watch = new IntersectionObserver((Entries) =>
+      {
+        if (!Entries[0].isIntersecting) return;
+        Watch.disconnect();
+        StartSpotify();
+      }, { rootMargin: '300px' });
+      Watch.observe(Deck);
+    }
+
+    // Resize: the waveforms and the song name are fitted again when their boxes change
+    if (window.ResizeObserver)
+    {
+      new ResizeObserver(DrawOverview).observe(OverWrap);
+      new ResizeObserver(() => FitTitle(TitleText)).observe(Title);
+      new ResizeObserver(DrawZoom).observe(Zoom.parentNode);
+    }
+
     // Platforms: Spotify, YouTube Music or Apple Music
     const Buttons = Array.from(Switcher.querySelectorAll('.platform-btn'));
 
     // The SetPlatform function points every tile at one platform and remembers the choice
     function SetPlatform(Name, Remember)
     {
+      Platform = Name;
       Tiles.forEach(Tile => { if (Tile.dataset[Name]) Tile.href = Tile.dataset[Name]; });
       Buttons.forEach(Button =>
       {
@@ -723,6 +1060,7 @@
         Button.classList.toggle('active', On);
         Button.setAttribute('aria-pressed', On ? 'true' : 'false');
       });
+      UpdateSource();
       if (Remember)
       {
         try { localStorage.setItem('beviitoPlatform', Name); } catch (error) {}
@@ -734,6 +1072,7 @@
     try { Saved = localStorage.getItem('beviitoPlatform'); } catch (error) {}
     SetPlatform(Buttons.some(Button => Button.dataset.platform === Saved) ? Saved : 'spotify', false);
     ShowPage(0);
+    LoadTrack(0, false, false);
   })();
 
   // Event types: the chips on the booking form, only one can be picked
