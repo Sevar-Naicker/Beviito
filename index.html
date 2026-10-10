@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beviito — DJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar Start -->
+<nav>
+  <div class="wrap">
+    <div class="nav-socials">
+      <a href="https://open.spotify.com/artist/5U9Ge8YwjhQzHGxZ9Eluz8" aria-label="Spotify" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M7 10.5c3-1 7-.6 9.5 1M7.5 13.5c2.5-.8 5.8-.5 8 .8M8 16.3c2-.6 4.6-.4 6.3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://www.instagram.com/beviito/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.mixcloud.com/beviito/" aria-label="Mixcloud" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15a4 4 0 010-8 5 5 0 019.6-1.5A4 4 0 0119 15H7z" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5l4 2.2-4 2.2z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ" aria-label="YouTube Music" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.apple.com/za/artist/beviito/1609881457" aria-label="Apple Music" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M9 16.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM14 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM10.5 13.5V8l5-1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <a class="nav-mark-link" href="index.html" aria-label="Beviito home"><img class="nav-mark" src="Media/Logos/beviito-logo-white.png" alt="Beviito"></a>
+    <div class="nav-right">
+      <a class="nav-cta" href="#booking">Book Beviito</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<!-- Navigation Bar End -->
+
+<!-- Social Media Buttons (With Links) Start -->
+<div class="site-menu" id="siteMenu">
+  <div class="site-menu-bar">
+    <div class="nav-socials">
+      <a href="https://open.spotify.com/artist/5U9Ge8YwjhQzHGxZ9Eluz8" aria-label="Spotify" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M7 10.5c3-1 7-.6 9.5 1M7.5 13.5c2.5-.8 5.8-.5 8 .8M8 16.3c2-.6 4.6-.4 6.3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://www.instagram.com/beviito/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.mixcloud.com/beviito/" aria-label="Mixcloud" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15a4 4 0 010-8 5 5 0 019.6-1.5A4 4 0 0119 15H7z" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5l4 2.2-4 2.2z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ" aria-label="YouTube Music" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.apple.com/za/artist/beviito/1609881457" aria-label="Apple Music" target="_blank" rel="noopener">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M9 16.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM14 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM10.5 13.5V8l5-1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <a class="nav-mark-link" href="index.html" aria-label="Beviito home"><img class="nav-mark" src="Media/Logos/beviito-logo-white.png" alt="Beviito"></a>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="site-menu-links">
+    <a href="#deck-section">Tracks</a>
+    <a href="#gigs">Gigs</a>
+    <a href="#booking">Booking</a>
+    <a href="#about">The Story So Far</a>
+    <a href="press.html">Press</a>
+  </div>
+</div>
+<!-- Social Media Buttons (With Links) End -->
+
+<!-- Launch Section (Main Page) Start -->
+<header class="hero" id="heroIntro">
+  <video class="hero-bg-photo" autoplay muted loop playsinline poster="Media/Videos/interlude-poster.jpg">
+    <source src="Media/Videos/interlude-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-bg-scrim"></div>
+  <div class="interlude-lyrics" id="heroLyrics">
+    <div class="line">THE ROOM DECIDES</div>
+    <div class="line">HE JUST READS IT</div>
+    <div class="line">THIS IS BEVIITO</div>
+  </div>
+</header>
+<!-- Launch Section (Main Page) End -->
+
+<!-- Stream Deck Section (Buttons redirect to spotify songs) Start -->
+<section id="deck-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Beviito's Tracks</h2>
+    </div>
+    <div class="deck-panel">
+      <div class="stream-panel" id="mixes">
+        <div class="platform-switch" id="platformSwitch" role="group" aria-label="Open songs on">
+          <button type="button" class="platform-btn active" data-platform="spotify" aria-pressed="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M7 10.5c3-1 7-.6 9.5 1M7.5 13.5c2.5-.8 5.8-.5 8 .8M8 16.3c2-.6 4.6-.4 6.3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            Spotify
+          </button>
+          <button type="button" class="platform-btn" data-platform="ytm" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+            YouTube Music
+          </button>
+          <button type="button" class="platform-btn" data-platform="apple" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M9 16.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM14 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM10.5 13.5V8l5-1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Apple Music
+          </button>
+        </div>
+        <div class="tile-grid" id="tileGrid">
+          <a class="tile has-cover" href="https://open.spotify.com/track/2QnLv0mgkPhVDS79KWcbp3" target="_blank" rel="noopener" data-title="Expekit" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/2QnLv0mgkPhVDS79KWcbp3" data-apple="https://music.apple.com/za/album/expekit-single/1609881359" data-ytm="https://music.youtube.com/watch?v=bh3NjjCXspQ">
+            <img class="tile-cover" src="Media/Tracks/track-expekit.png" alt="">
+            <span class="tname">Expekit</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/5pTVcOVSBzcxOJvLgXjljN" target="_blank" rel="noopener" data-title="Body &amp; Soul" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/5pTVcOVSBzcxOJvLgXjljN" data-apple="https://music.apple.com/za/album/body-soul-single/1649330539" data-ytm="https://music.youtube.com/watch?v=DBgEDinDjvY">
+            <img class="tile-cover" src="Media/Tracks/track-body-soul.png" alt="">
+            <span class="tname">Body &amp; Soul</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/5ppSrS6L8RU9VRnxxDfrsE" target="_blank" rel="noopener" data-title="Gone" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/5ppSrS6L8RU9VRnxxDfrsE" data-apple="https://music.apple.com/za/album/gone-single/1646310966" data-ytm="https://music.youtube.com/watch?v=91TV_9rTf50">
+            <img class="tile-cover" src="Media/Tracks/track-gone.png" alt="">
+            <span class="tname">Gone</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/7B187F099aoSDicl2IPNUp" target="_blank" rel="noopener" data-title="How Will I Know" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/7B187F099aoSDicl2IPNUp" data-apple="https://music.apple.com/za/album/how-will-i-know-single/1659847240" data-ytm="https://music.youtube.com/watch?v=72-SPZHRESg">
+            <img class="tile-cover" src="Media/Tracks/track-how-will-i-know.png" alt="">
+            <span class="tname">How Will I Know</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/4e3hena3ox3nQxJtbBhGAj" target="_blank" rel="noopener" data-title="Kumbaya" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/4e3hena3ox3nQxJtbBhGAj" data-apple="https://music.apple.com/za/album/kumbaya-single/1762741764" data-ytm="https://music.youtube.com/watch?v=PksmSi_JAQU">
+            <img class="tile-cover" src="Media/Tracks/track-kumbaya.png" alt="">
+            <span class="tname">Kumbaya</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/1T77V0KIYMBPeKrnXW1Zef" target="_blank" rel="noopener" data-title="When U Need It" data-tag="2026 · single" data-spotify="https://open.spotify.com/track/1T77V0KIYMBPeKrnXW1Zef" data-apple="https://music.apple.com/za/album/when-u-need-it-single/1894811197" data-ytm="https://music.youtube.com/watch?v=mjC0VET-9O8">
+            <img class="tile-cover" src="Media/Tracks/track-when-u-need-it.png" alt="">
+            <span class="tname">When U Need It</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/43ZUSLYgLWjnKVLyaWw2N9" target="_blank" rel="noopener" data-title="Change" data-tag="2025 · single" data-spotify="https://open.spotify.com/track/43ZUSLYgLWjnKVLyaWw2N9" data-apple="https://music.apple.com/za/album/change-single/1837430545" data-ytm="https://music.youtube.com/watch?v=y50RFeXcNNQ">
+            <img class="tile-cover" src="Media/Tracks/track-change.png" alt="">
+            <span class="tname">Change</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/52FvyiDELf0k8gH9JHKaKy" target="_blank" rel="noopener" data-title="Believe In" data-tag="2025 · single" data-spotify="https://open.spotify.com/track/52FvyiDELf0k8gH9JHKaKy" data-apple="https://music.apple.com/za/album/believe-in-single/1830449143" data-ytm="https://music.youtube.com/watch?v=KviCANmhkfo">
+            <img class="tile-cover" src="Media/Tracks/track-believe-in.png" alt="">
+            <span class="tname">Believe In</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/4zYg4Yguq0Is4TuHOsmTaK" target="_blank" rel="noopener" data-title="Bout Us" data-tag="2025 · single" data-spotify="https://open.spotify.com/track/4zYg4Yguq0Is4TuHOsmTaK" data-apple="https://music.apple.com/za/album/bout-us-single/1799452089" data-ytm="https://music.youtube.com/watch?v=vKVejK5gnUY">
+            <img class="tile-cover" src="Media/Tracks/track-bout-us.png" alt="">
+            <span class="tname">Bout Us</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/1UI2dlumeWhWkAyngMS0kW" target="_blank" rel="noopener" data-title="Favours" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/1UI2dlumeWhWkAyngMS0kW" data-apple="https://music.apple.com/za/album/favours-single/1783142832" data-ytm="https://music.youtube.com/watch?v=SRJCkykft0E">
+            <img class="tile-cover" src="Media/Tracks/track-favours.png" alt="">
+            <span class="tname">Favours</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/5ld81SOeY6UkqJzLTt9yyJ" target="_blank" rel="noopener" data-title="Los!ng U" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/5ld81SOeY6UkqJzLTt9yyJ" data-apple="https://music.apple.com/za/album/los-ng-u-single/1779731279" data-ytm="https://music.youtube.com/watch?v=rXmnVNRXPEY">
+            <img class="tile-cover" src="Media/Tracks/track-losing-u.png" alt="">
+            <span class="tname">Los!ng U</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/2EFYIlAf1JIVhXofWDyGBa" target="_blank" rel="noopener" data-title="The Calling (BK YATRA Remix)" data-tag="2024 · remix" data-spotify="https://open.spotify.com/track/2EFYIlAf1JIVhXofWDyGBa" data-apple="https://music.apple.com/za/album/the-calling-bk-yatra-remix-single/1774754757" data-ytm="https://music.youtube.com/playlist?list=OLAK5uy_mMzYY5vtZuvoacNsTf_KlLKyUGzPGXFdk">
+            <img class="tile-cover" src="Media/Tracks/track-the-calling.png" alt="">
+            <span class="tname">The Calling (BK YATRA Remix)</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/0CiqswXyrfrg8JjtkH1cVX" target="_blank" rel="noopener" data-title="The Calling" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/0CiqswXyrfrg8JjtkH1cVX" data-apple="https://music.apple.com/za/album/the-calling-single/1754883670" data-ytm="https://music.youtube.com/playlist?list=OLAK5uy_mvzazGQSEeCSYuJ62FKFlbSZW3_e6gLZw">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02562911af9b08dd74eff03a80" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">The Calling</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/3Cp2PmGGQG43YWdBdEDe1k" target="_blank" rel="noopener" data-title="Ilesa" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/3Cp2PmGGQG43YWdBdEDe1k" data-apple="https://music.apple.com/za/album/ilesa-single/1755904761" data-ytm="https://music.youtube.com/watch?v=4Cwg-m1mF0s">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02563a51519943d77df63a8e5e" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Ilesa</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/1BvpkGdOGJduo37HrsdkXu" target="_blank" rel="noopener" data-title="Whats That Thing Called?" data-tag="2024 · single" data-spotify="https://open.spotify.com/track/1BvpkGdOGJduo37HrsdkXu" data-apple="https://music.apple.com/za/album/whats-that-thing-called-single/1731166080" data-ytm="https://music.youtube.com/watch?v=EBvpP9bNdes">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e0238146d7eb8215dbefec92ecc" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Whats That Thing Called?</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/album/1JU5W7JwqgpYextbXPbmpz" target="_blank" rel="noopener" data-title="Time" data-tag="2024 · single" data-spotify="https://open.spotify.com/album/1JU5W7JwqgpYextbXPbmpz" data-apple="https://music.apple.com/za/album/time-single/1730001533" data-ytm="https://music.youtube.com/watch?v=ag9nCqXmIMk">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02e938008118b527c6fbb6884d" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Time</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/album/501p8cAgQLZ2OmEoftHakU" target="_blank" rel="noopener" data-title="Roll with Ice" data-tag="2024 · single" data-spotify="https://open.spotify.com/album/501p8cAgQLZ2OmEoftHakU" data-apple="https://music.apple.com/za/album/roll-with-ice-single/1719772050" data-ytm="https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e0275c54a343ad300d8d2248e2e" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Roll with Ice</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/0KDim3H3kLqecqQQxA5uqP" target="_blank" rel="noopener" data-title="2 Scared" data-tag="2023 · single" data-spotify="https://open.spotify.com/track/0KDim3H3kLqecqQQxA5uqP" data-apple="https://music.apple.com/za/album/2-scared-single/1711088805" data-ytm="https://music.youtube.com/watch?v=HfHAhmlT9MM">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e020d499af82e821abdc8c0ea30" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">2 Scared</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/0stUbaP8vhA2vdqWrJbtRL" target="_blank" rel="noopener" data-title="Complicated" data-tag="2023 · single" data-spotify="https://open.spotify.com/track/0stUbaP8vhA2vdqWrJbtRL" data-apple="https://music.apple.com/za/album/complicated-single/1702076976" data-ytm="https://music.youtube.com/watch?v=tc_iCeAAZvo">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02efcb7839b355b61cb428c8f4" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Complicated</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/album/5Hj06M4KWwT0Se4teylqRW" target="_blank" rel="noopener" data-title="Is This a Dream? (Drum N Remix)" data-tag="2023 · remix" data-spotify="https://open.spotify.com/album/5Hj06M4KWwT0Se4teylqRW" data-apple="https://music.apple.com/za/album/is-this-a-dream-single/1699241792" data-ytm="https://music.youtube.com/watch?v=g4YS0XpcIvo">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02fe92ff5eb68654c015ce95f8" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Is This a Dream? (Drum N Remix)</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/6j7lCRwsiBSH2iBnn9zkaY" target="_blank" rel="noopener" data-title="Is This a Dream?" data-tag="2023 · single" data-spotify="https://open.spotify.com/track/6j7lCRwsiBSH2iBnn9zkaY" data-apple="https://music.apple.com/za/album/is-this-a-dream-single/1696866721" data-ytm="https://music.youtube.com/watch?v=QAgJBFFfx_o">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e023e9e2e025622a647f3314e70" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Is This a Dream?</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/0L2kObDOhL8ouyTJ6tNiOi" target="_blank" rel="noopener" data-title="Is This a Dream? (Dean Gouws Remix)" data-tag="2023 · remix" data-spotify="https://open.spotify.com/track/0L2kObDOhL8ouyTJ6tNiOi" data-apple="https://music.apple.com/za/album/is-this-a-dream-dean-gouws-remix-single/1696829943" data-ytm="https://music.youtube.com/watch?v=Bp8-QD55PKM">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02fb315989829dba6d43a3be70" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Is This a Dream? (Dean Gouws Remix)</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/album/5sfO5Kn6rIECY4XnCPMngm" target="_blank" rel="noopener" data-title="Silently in Love" data-tag="2023 · single" data-spotify="https://open.spotify.com/album/5sfO5Kn6rIECY4XnCPMngm" data-apple="https://music.apple.com/za/album/silently-in-love-single/1687266017" data-ytm="https://music.youtube.com/watch?v=7SvBqqxh06g">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02830b468fd55de8f0c69e151a" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Silently in Love</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/album/6KfsvdczUMOKB94r3DOyvR" target="_blank" rel="noopener" data-title="Sunshine" data-tag="2023 · single" data-spotify="https://open.spotify.com/album/6KfsvdczUMOKB94r3DOyvR" data-apple="https://music.apple.com/za/album/sunshine-single/1678097419" data-ytm="https://music.youtube.com/watch?v=YpVmxoKyN7Y">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02aeb510141e2a178fcaf2af3f" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Sunshine</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/5UvN4dXgkGDgGLiErUZoK9" target="_blank" rel="noopener" data-title="Yeh Yeh Yeh" data-tag="2023 · single" data-spotify="https://open.spotify.com/track/5UvN4dXgkGDgGLiErUZoK9" data-apple="https://music.apple.com/za/album/yeh-yeh-yeh-feat-fairytales-single/1678100838" data-ytm="https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02775ccec7c1bdbf46c6a14c16" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Yeh Yeh Yeh</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/3bLiTaBDq62go1Nz2dRGny" target="_blank" rel="noopener" data-title="Let Go" data-tag="2023 · single" data-spotify="https://open.spotify.com/track/3bLiTaBDq62go1Nz2dRGny" data-apple="https://music.apple.com/za/album/let-go-single/1675568037" data-ytm="https://music.youtube.com/watch?v=b-F1f9G8WXI">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e029bfdfb2c8a5e6585453e8e49" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Let Go</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/1ITwMOt9LkdXYkp0i9shWN" target="_blank" rel="noopener" data-title="Chapter" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/1ITwMOt9LkdXYkp0i9shWN" data-apple="https://music.apple.com/za/album/chapter-single/1639858834" data-ytm="https://music.youtube.com/watch?v=cWJEX8mZvP8">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e0247d7dfd773ddc49b93fa0de3" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Chapter</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/2TZW3eHQhCtdH8neqBJpJZ" target="_blank" rel="noopener" data-title="U Know" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/2TZW3eHQhCtdH8neqBJpJZ" data-apple="https://music.apple.com/za/album/u-know-single/1632615492" data-ytm="https://music.youtube.com/watch?v=3O1SLSqLsMs">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e0210a461bc77e921de515fb6da" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">U Know</span>
+          </a>
+          <a class="tile has-cover" href="https://open.spotify.com/track/2MGof3hQqt4OeRx8iLRLtF" target="_blank" rel="noopener" data-title="Kiss Me" data-tag="2022 · single" data-spotify="https://open.spotify.com/track/2MGof3hQqt4OeRx8iLRLtF" data-apple="https://music.apple.com/za/album/kiss-me-feat-fairytales-single/1618020036" data-ytm="https://music.youtube.com/watch?v=57wpxa2kGd8">
+            <img class="tile-cover" src="https://i.scdn.co/image/ab67616d00001e02bbcda20dffb2a09822414db6" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <span class="tname">Kiss Me</span>
+          </a>
+        </div>
+        <div class="deck-dots" id="deckDots" role="group" aria-label="Song pages"></div>
+      </div>
+      <!-- Stream Deck Section (Buttons redirect to spotify songs) End -->
+
+      <!-- Stream Deck Beviito Photo (Song Name Display) Start -->
+      <div class="photo-panel">
+        <img src="https://i.scdn.co/image/ab6761610000e5eb178e3755dcd2a0afcef9afc3" alt="Beviito">
+        <div class="live-pill"><span class="dot"></span><span>On stage</span></div>
+        <div class="photo-caption">
+          <div class="label" id="cdjTag">tech house · 126</div>
+          <div class="cdj-track-title" id="cdjTitle">Concrete Bloom</div>
+          <div class="cdj-track-meta">now loaded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Stream Deck Beviito Photo (Song Name Display) End -->
+
+<!-- Beviito Logo Zoom (Media Spacer) Start -->
+<div class="intro-spacer" id="introSpacer">
+  <div class="intro-pin" id="introPin">
+    <img class="intro-logo" id="introLogo" src="Media/Logos/beviito-logo.svg" alt="Beviito">
+  </div>
+</div>
+<!-- Beviito Logo Zoom (Media Spacer) End -->
+
+<!-- "The Story So Far" Section (Individual Panels With Bits Of The Story) Start -->
+<section id="about">
+  <div class="about-panels">
+      <a class="panel-link" href="#gigs" style="background-image:url('Media/About/about-stage-blue.jpg')">
+        <span class="panel-tag">Beviito is a Johannesburg-based DJ and producer known for his dynamic presence in the Afro House, Deep House, and Tech House scenes.</span>
+      </a>
+      <a class="panel-link" href="#gigs" style="background-image:url('Media/About/about-portrait.jpg')">
+        <span class="panel-tag">He's worked club nights, private events, and the odd rooftop that shouldn't have speakers this good.</span>
+      </a>
+      <a class="panel-link" href="#gigs" style="background-image:url('Media/About/about-stage-purple.jpg')">
+        <span class="panel-tag">With a growing discography and a distinctive sound, he's been making waves in the South African electronic music landscape.</span>
+      </a>
+      <a class="panel-link" href="#gigs" style="background-image:url('Media/About/about-stage-green.jpg')">
+        <span class="panel-tag">His musical journey includes releases like "The Calling" and its remix by BK YATRA, alongside tracks like "Los!ng U," "Favours," and "Bout Us."</span>
+      </a>
+      <a class="panel-link" href="#gigs" style="background-image:url('Media/About/about-stage-red.jpg')">
+        <span class="panel-tag">He's graced stages at prominent venues, including a September 2024 set at Truth Nightclub, and collaborated with artists like Drum N and BK YATRA.</span>
+      </a>
+  </div>
+  </div>
+</section>
+<!-- "The Story So Far" Section (Individual Panels With Bits Of The Story) End -->
+
+<!-- Reviews / Comments Section (Quotes pop in one by one) Start -->
+<section id="reviews">
+  <video class="interlude-video" autoplay muted loop playsinline poster="Media/Backrounds/hero-bg.jpg">
+    <source src="Media/Videos/about-video-decks.mp4" type="video/mp4">
+  </video>
+  <div class="interlude-scrim"></div>
+  <div class="review-pops" id="reviewPops">
+    <div class="review-card"><span class="review-text">"It was fabulous, many thanks — you were very professional, a lovely guy as well as an awesome DJ, and I'll absolutely refer you."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Thanks Bevan, we all had a really great time."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"You made it special with us, bro — so thank you."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Oh my gosh, thank you for everything — you were such a pleasure to work with."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Was a blast both seeing your set and doing the AV for it — genuinely so kiff."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Thanks again Bev, you were awesome."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Thank you so much again for Saturday, you were really fantastic!"</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Lekker boetie! I'll always recommend you."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+    <div class="review-card"><span class="review-text">"Boss man top set today! Shit that was good."</span><span class="eq-bars"><span></span><span></span><span></span><span></span></span></div>
+  </div>
+</section>
+<!-- Reviews / Comments Section End -->
+
+<!-- Upcoming Events / Gigs Section (Button redirects to buy tickets) Start -->
+<section id="gigs">
+  <img class="gigs-bg-video" src="Media/Backrounds/hero-bg.jpg" alt="">
+  <div class="gigs-bg-scrim"></div>
+  <div class="wrap">
+    <div class="gigs-billboard">
+      <div class="gigs-kicker">Upcoming gigs</div>
+      <h2 class="gigs-headline">Nothing booked.<br>Watch this space<span class="gigs-cursor" aria-hidden="true"></span></h2>
+      <p>New dates land here first. Follow along on Instagram, or get in touch if you want Beviito on your night.</p>
+      <div class="gigs-empty-actions">
+        <a class="btn-primary" href="https://www.instagram.com/beviito/" target="_blank" rel="noopener">Follow on Instagram</a>
+        <a class="btn-secondary" href="#booking">Book Beviito</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Upcoming Events / Gigs Section (Button redirects to buy tickets) End -->
+
+<!-- Brands Marquee Start -->
+<section id="brands" aria-label="Brands Beviito has worked with">
+  <p class="brands-label">Brands &amp; stages Beviito has worked with</p>
+  <div class="brands-viewport">
+    <ul class="brands-track"><li><img src="Media/Brands/5fm.jpg" alt="5FM" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/rage-festival.jpg" alt="Rage Festival" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/ujfm.jpg" alt="UJFM 95.4" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/spar.jpg" alt="SPAR" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/truth.jpg" alt="Truth" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/murray-records.jpg" alt="Murray Records" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/jandro-records.jpg" alt="Jandro Records" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/entelect.jpg" alt="Entelect" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/rise-academy.jpg" alt="Rise Academy" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/maracana.jpg" alt="Maracana" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/sognage.jpg" alt="Sognage" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/sunday-shuffle.jpg" alt="Sunday Shuffle" width="120" height="120" loading="lazy" draggable="false"></li></ul>
+    <ul class="brands-track" aria-hidden="true"><li><img src="Media/Brands/5fm.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/rage-festival.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/ujfm.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/spar.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/truth.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/murray-records.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/jandro-records.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/entelect.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/rise-academy.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/maracana.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/sognage.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li><li><img src="Media/Brands/sunday-shuffle.jpg" alt="" width="120" height="120" loading="lazy" draggable="false"></li></ul>
+  </div>
+</section>
+<!-- Brands Marquee End -->
+
+<!-- Booking Section (Active Work Email) Start -->
+<section id="booking">
+  <img class="booking-bg-photo" src="Media/Backrounds/booking-photo.jpg" alt="" loading="lazy">
+  <div class="booking-bg-scrim"></div>
+  <div class="wrap">
+    <div class="booking">
+      <div>
+        <h2>Book Beviito</h2>
+        <p>Open format club sets, private events, and brand activations. Usually booked 4–6 weeks out.</p>
+        <div class="booking-contact">
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6"/></svg><a href="mailto:beviitodj@gmail.com">beviitodj@gmail.com</a></div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg><a href="https://www.instagram.com/beviito/" target="_blank" rel="noopener">@beviito</a></div>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg><span style="display:inline;color:var(--text);">Johannesburg, ZA</span></div>
+        </div>
+      </div>
+      <form id="bookingForm" novalidate>
+        <div id="bookingFormFields">
+          <div class="field-group">
+            <label>Event type</label>
+            <div class="chip-group" id="eventTypeChips">
+              <button type="button" class="chip" data-value="Club night">Club night</button>
+              <button type="button" class="chip" data-value="Private event">Private event</button>
+              <button type="button" class="chip" data-value="Brand activation">Brand activation</button>
+              <button type="button" class="chip" data-value="Other">Other</button>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name">
+            <div class="form-error" id="nameError">Enter your name.</div>
+          </div>
+          <div class="field-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com">
+            <div class="form-error" id="emailError">Enter a valid email.</div>
+          </div>
+          <div class="field-group">
+            <label for="message">Event details</label>
+            <textarea id="message" name="message" placeholder="Date, venue, and what kind of set you're after"></textarea>
+            <div class="form-error" id="messageError">Add a few details about the event.</div>
+          </div>
+          <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+          <div class="form-error" id="sendError" role="alert">Couldn't send that just now. Please try again, or email <a href="mailto:beviitodj@gmail.com">beviitodj@gmail.com</a> directly.</div>
+          <button type="submit" class="btn-primary" id="sendBtn" style="justify-content:center; width:100%;">Send enquiry</button>
+        </div>
+        <div class="booking-success" id="bookingSuccess">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="var(--accent)" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>Got it — I'll get back to you within 48 hours.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Booking Section (Active Work Email) End -->
+
+<!-- Footer Start -->
+<footer>
+  <div class="wrap footer-stack">
+    <a href="index.html" aria-label="Beviito home"><img class="footer-mark" src="Media/Logos/beviito-logo-white.png" alt="Beviito"></a>
+    <div class="footer-socials">
+      <a href="https://open.spotify.com/artist/5U9Ge8YwjhQzHGxZ9Eluz8" aria-label="Spotify" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M7 10.5c3-1 7-.6 9.5 1M7.5 13.5c2.5-.8 5.8-.5 8 .8M8 16.3c2-.6 4.6-.4 6.3.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </a>
+      <a href="https://www.instagram.com/beviito/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.mixcloud.com/beviito/" aria-label="Mixcloud" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 15a4 4 0 010-8 5 5 0 019.6-1.5A4 4 0 0119 15H7z" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5l4 2.2-4 2.2z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ" aria-label="YouTube Music" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="12" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://music.apple.com/za/artist/beviito/1609881457" aria-label="Apple Music" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M9 16.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM14 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM10.5 13.5V8l5-1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#deck-section">Tracks</a></li>
+      <li><a href="#about">Story</a></li>
+      <li><a href="#reviews">Comments</a></li>
+      <li><a href="#gigs">Gigs</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="press.html">Press</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Beviito &middot; Johannesburg, South Africa. All rights reserved.</p>
+  </div>
+</footer>
+<!-- Footer End -->
+
+<script>
+  // This file contains the scripts for the main page: menu, logo reveal, comments, stream deck and booking form
+
+  // Menu: opens and closes the full-screen menu and pulses the burger lines on hover
+  (function StartMenu()
+  {
+    const Toggle = document.getElementById('menuToggle');
+    const Close = document.getElementById('menuClose');
+    const Menu = document.getElementById('siteMenu');
+    if (!Toggle || !Menu) return;
+
+    // The OpenMenu function shows the menu
+    function OpenMenu()
+    {
+      Menu.classList.add('open');
+      Toggle.classList.add('open');
+      Toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+
+    // The CloseMenu function hides the menu
+    function CloseMenu()
+    {
+      Menu.classList.remove('open');
+      Toggle.classList.remove('open');
+      Toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+    }
+
+    Toggle.addEventListener('click', () =>
+    {
+      Menu.classList.contains('open') ? CloseMenu() : OpenMenu();
+    });
+    Close.addEventListener('click', CloseMenu);
+    Menu.querySelectorAll('.site-menu-links a').forEach(Link =>
+    {
+      Link.addEventListener('click', CloseMenu);
+    });
+    document.addEventListener('keydown', (event) =>
+    {
+      if (event.key === 'Escape') CloseMenu();
+    });
+
+    // Burger hover: the three lines shrink and grow like EQ bars
+    const Lines = Toggle.querySelectorAll('span');
+    const Widths = [0.45, 1, 0.65];
+    let Pulses = [];
+    const ReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    Toggle.addEventListener('mouseenter', () =>
+    {
+      if (ReduceMotion || Toggle.classList.contains('open')) return;
+      Lines.forEach((Line, I) =>
+      {
+        Pulses.push(Line.animate(
+          [{ transform: 'scaleX(1)' }, { transform: 'scaleX(' + Widths[I] + ')' }, { transform: 'scaleX(1)' }],
+          { duration: 600 + I * 150, iterations: Infinity, easing: 'ease-in-out' }
+        ));
+      });
+    });
+    Toggle.addEventListener('mouseleave', () =>
+    {
+      Pulses.forEach(Pulse => Pulse.cancel());
+      Pulses = [];
+    });
+  })();
+
+  // Logo reveal: the logo grows and blurs as the page scrolls between the hero and the rest
+  (function StartLogoReveal()
+  {
+    const Spacer = document.getElementById('introSpacer');
+    const Pin = document.getElementById('introPin');
+    const Logo = document.getElementById('introLogo');
+    const ReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (ReduceMotion || !Spacer || !Pin || !Logo) return;
+
+    const MaxScale = 6;
+
+    // The Update function sizes the logo from how far the spacer has scrolled
+    function Update()
+    {
+      const Total = Spacer.offsetHeight - window.innerHeight;
+      if (Total <= 0) return;
+
+      const Top = Spacer.getBoundingClientRect().top;
+      const Progress = Math.min(Math.max(-Top / Total, 0), 1);
+      const Scale = 1 + Progress * (MaxScale - 1);
+      const Blur = Progress * 3;
+      Logo.style.transform = 'scale(' + Scale.toFixed(3) + ')';
+      Logo.style.filter = 'invert(1) blur(' + Blur.toFixed(2) + 'px)';
+    }
+
+    window.addEventListener('scroll', Update, { passive: true });
+    window.addEventListener('resize', Update);
+    Update();
+  })();
+
+  // Hero: the lyrics play shortly after the page loads
+  (function StartLyrics()
+  {
+    const Lyrics = document.getElementById('heroLyrics');
+    if (!Lyrics) return;
+    setTimeout(() => Lyrics.classList.add('play'), 400);
+  })();
+
+  // Comments: the comment cards fill the frame in a jittered grid without overlapping
+  (function StartComments()
+  {
+    const Pops = document.getElementById('reviewPops');
+    if (!Pops) return;
+    const Cards = Array.from(Pops.querySelectorAll('.review-card'));
+    if (!Cards.length) return;
+
+    // The Shuffle function returns a shuffled copy of a list
+    function Shuffle(List)
+    {
+      const Copy = List.slice();
+      for (let I = Copy.length - 1; I > 0; I--)
+      {
+        const J = Math.floor(Math.random() * (I + 1));
+        [Copy[I], Copy[J]] = [Copy[J], Copy[I]];
+      }
+      return Copy;
+    }
+
+    // The Scatter function gives every card its own cell in the grid with a little random drift
+    function Scatter()
+    {
+      if (window.matchMedia('(max-width: 640px)').matches) return; // mobile uses the stacked CSS layout
+      const Width = Pops.clientWidth;
+      const Height = Pops.clientHeight;
+      const Columns = 3;
+      const Rows = Math.ceil(Cards.length / Columns);
+      const PadX = 20;
+      const PadY = 20;
+      const CellWidth = (Width - PadX * 2) / Columns;
+      const CellHeight = (Height - PadY * 2) / Rows;
+      const CellOrder = Shuffle(Cards.map((_, I) => I));
+
+      // Each card is sized to fill most of its cell
+      Cards.forEach(Card =>
+      {
+        Card.style.width = (CellWidth * 0.86) + 'px';
+      });
+
+      Cards.forEach((Card, I) =>
+      {
+        const CellIndex = CellOrder[I];
+        const Column = CellIndex % Columns;
+        const Row = Math.floor(CellIndex / Columns);
+        const CellX = PadX + Column * CellWidth;
+        const CellY = PadY + Row * CellHeight;
+        const FreeX = Math.max(CellWidth - Card.offsetWidth, 0);
+        const FreeY = Math.max(CellHeight - Card.offsetHeight, 0);
+        Card.style.left = (CellX + FreeX / 2 + (Math.random() - 0.5) * FreeX * 0.5) + 'px';
+        Card.style.top = (CellY + FreeY / 2 + (Math.random() - 0.5) * FreeY * 0.5) + 'px';
+      });
+    }
+
+    // The cards are placed and pop in once the section is a third on screen
+    const Observer = new IntersectionObserver((Entries) =>
+    {
+      Entries.forEach(Entry =>
+      {
+        if (Entry.isIntersecting)
+        {
+          Scatter();
+          requestAnimationFrame(() => Pops.classList.add('play'));
+          Observer.unobserve(Entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    Observer.observe(Pops);
+
+    window.addEventListener('resize', () =>
+    {
+      if (Pops.classList.contains('play')) Scatter();
+    });
+  })();
+
+  // Stat counters: numbers count up when scrolled into view
+  (function StartCounters()
+  {
+    const Numbers = document.querySelectorAll('.stat-num');
+    if (!Numbers.length) return;
+    const ReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // The CountUp function counts one number up to its target
+    function CountUp(Element)
+    {
+      const Target = parseInt(Element.dataset.target, 10) || 0;
+      if (ReduceMotion)
+      {
+        Element.textContent = Target.toLocaleString();
+        return;
+      }
+      const Duration = 1400;
+      const Start = performance.now();
+
+      // The Step function draws one frame of the count
+      function Step(Now)
+      {
+        const Progress = Math.min((Now - Start) / Duration, 1);
+        const Eased = 1 - Math.pow(1 - Progress, 3);
+        Element.textContent = Math.round(Eased * Target).toLocaleString();
+        if (Progress < 1) requestAnimationFrame(Step);
+      }
+      requestAnimationFrame(Step);
+    }
+
+    const Observer = new IntersectionObserver((Entries) =>
+    {
+      Entries.forEach(Entry =>
+      {
+        if (Entry.isIntersecting)
+        {
+          CountUp(Entry.target);
+          Observer.unobserve(Entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    Numbers.forEach(Counter => Observer.observe(Counter));
+  })();
+
+  // Caption: the "now loaded" caption changes when a tile is clicked
+  (function StartCaption()
+  {
+    const Title = document.getElementById('cdjTitle');
+    const Tag = document.getElementById('cdjTag');
+    if (!Title || !Tag) return;
+
+    document.querySelectorAll('.tile.has-cover').forEach(Tile =>
+    {
+      Tile.addEventListener('click', () =>
+      {
+        Title.textContent = Tile.dataset.title;
+        Tag.textContent = Tile.dataset.tag;
+      });
+    });
+  })();
+
+  // Stream deck: pages of tiles with dots, swipe and the platform buttons
+  (function StartDeck()
+  {
+    const Grid = document.getElementById('tileGrid');
+    const DotsWrap = document.getElementById('deckDots');
+    const Switcher = document.getElementById('platformSwitch');
+    if (!Grid || !DotsWrap || !Switcher) return;
+
+    const Tiles = Array.from(Grid.querySelectorAll('.tile'));
+    const PerPage = 12;
+    const PageCount = Math.ceil(Tiles.length / PerPage);
+    let Page = 0;
+
+    // The Dots are one button per page
+    const Dots = [];
+    for (let I = 0; I < PageCount; I++)
+    {
+      const Dot = document.createElement('button');
+      Dot.type = 'button';
+      Dot.className = 'deck-dot';
+      Dot.setAttribute('aria-label', 'Page ' + (I + 1) + ' of ' + PageCount);
+      Dot.addEventListener('click', () => ShowPage(I));
+      DotsWrap.appendChild(Dot);
+      Dots.push(Dot);
+    }
+    if (PageCount < 2) DotsWrap.hidden = true;
+
+    // The ShowPage function shows one page of tiles and lights its dot
+    function ShowPage(Index)
+    {
+      Page = Math.max(0, Math.min(PageCount - 1, Index));
+      Tiles.forEach((Tile, I) => { Tile.hidden = Math.floor(I / PerPage) !== Page; });
+      Dots.forEach((Dot, I) =>
+      {
+        Dot.classList.toggle('active', I === Page);
+        Dot.setAttribute('aria-current', I === Page ? 'true' : 'false');
+      });
+    }
+
+    // Swipe: a sideways swipe on touch screens changes the page
+    let TouchX = null;
+    Grid.addEventListener('touchstart', (event) => { TouchX = event.touches[0].clientX; }, { passive: true });
+    Grid.addEventListener('touchend', (event) =>
+    {
+      if (TouchX === null) return;
+      const Distance = event.changedTouches[0].clientX - TouchX;
+      TouchX = null;
+      if (Math.abs(Distance) > 50) ShowPage(Page + (Distance < 0 ? 1 : -1));
+    }, { passive: true });
+
+    // Platforms: Spotify, YouTube Music or Apple Music
+    const Buttons = Array.from(Switcher.querySelectorAll('.platform-btn'));
+
+    // The SetPlatform function points every tile at one platform and remembers the choice
+    function SetPlatform(Name, Remember)
+    {
+      Tiles.forEach(Tile => { if (Tile.dataset[Name]) Tile.href = Tile.dataset[Name]; });
+      Buttons.forEach(Button =>
+      {
+        const On = Button.dataset.platform === Name;
+        Button.classList.toggle('active', On);
+        Button.setAttribute('aria-pressed', On ? 'true' : 'false');
+      });
+      if (Remember)
+      {
+        try { localStorage.setItem('beviitoPlatform', Name); } catch (error) {}
+      }
+    }
+    Buttons.forEach(Button => Button.addEventListener('click', () => SetPlatform(Button.dataset.platform, true)));
+
+    let Saved = null;
+    try { Saved = localStorage.getItem('beviitoPlatform'); } catch (error) {}
+    SetPlatform(Buttons.some(Button => Button.dataset.platform === Saved) ? Saved : 'spotify', false);
+    ShowPage(0);
+  })();
+
+  // Event types: the chips on the booking form, only one can be picked
+  let SelectedEventType = '';
+  document.querySelectorAll('#eventTypeChips .chip').forEach(Chip =>
+  {
+    Chip.addEventListener('click', () =>
+    {
+      const AlreadyActive = Chip.classList.contains('active');
+      document.querySelectorAll('#eventTypeChips .chip').forEach(Other => Other.classList.remove('active'));
+      if (!AlreadyActive)
+      {
+        Chip.classList.add('active');
+        SelectedEventType = Chip.dataset.value;
+      }
+      else
+      {
+        SelectedEventType = '';
+      }
+    });
+  });
+
+  // Booking form: checks the fields and sends the email through FormSubmit
+  const Form = document.getElementById('bookingForm');
+  const Fields = document.getElementById('bookingFormFields');
+  const Success = document.getElementById('bookingSuccess');
+
+  // The ShowError function shows or hides one error message
+  function ShowError(Id, Show)
+  {
+    document.getElementById(Id).classList.toggle('show', Show);
+  }
+
+  Form.addEventListener('submit', (event) =>
+  {
+    event.preventDefault();
+    const Name = document.getElementById('name').value.trim();
+    const Email = document.getElementById('email').value.trim();
+    const Message = document.getElementById('message').value.trim();
+    const EmailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email);
+
+    ShowError('nameError', Name.length === 0);
+    ShowError('emailError', !EmailOk);
+    ShowError('messageError', Message.length === 0);
+
+    if (Name.length === 0 || !EmailOk || Message.length === 0) return;
+
+    if (document.getElementById('honey').value) return; // bots fill this hidden field
+
+    const Button = document.getElementById('sendBtn');
+    const Label = Button.textContent;
+    Button.disabled = true;
+    Button.textContent = 'Sending…';
+    ShowError('sendError', false);
+
+    // The keys in the body are the names FormSubmit expects, so they stay lowercase
+    fetch('https://formsubmit.co/ajax/beviitodj@gmail.com',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(
+      {
+        _subject: 'New booking enquiry from ' + Name + (SelectedEventType ? ' (' + SelectedEventType + ')' : ''),
+        _template: 'table',
+        _captcha: 'false',
+        name: Name,
+        email: Email,
+        event_type: SelectedEventType || 'Not specified',
+        message: Message
+      })
+    })
+    .then(Response => Response.json().then(Data => ({ Ok: Response.ok, Data })))
+    .then(({ Ok, Data }) =>
+    {
+      if (!Ok || Data.success === 'false' || Data.success === false) throw new Error(Data.message || 'send failed');
+      Fields.style.display = 'none';
+      Success.classList.add('show');
+      Form.reset();
+      document.querySelectorAll('#eventTypeChips .chip').forEach(Chip => Chip.classList.remove('active'));
+      SelectedEventType = '';
+    })
+    .catch((error) =>
+    {
+      ShowError('sendError', true);
+      Button.disabled = false;
+      Button.textContent = Label;
+    });
+  });
+</script>
+
+</body>
+</html>

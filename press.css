@@ -1,0 +1,158 @@
+/* This file contains the styles for the press page */
+
+/* Colours and sizes used across the site */
+:root{
+    --bg: #0d0d0d;
+    --surface: #1a1a1a;
+    --surface-2: #232323;
+    --border: #333331;
+    --border-strong: #47473f;
+    --text: #f4f3ef;
+    --text-dim: #9a9a94;
+    --text-faint: #6b6b66;
+    --accent: #e8501c;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --maxw: 1180px;
+  }
+  /* Page defaults */
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* Headings, links and images */
+  h1,h2{ font-family:'Archivo', sans-serif; font-weight:900; line-height:1.05; margin:0; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--accent); color:#0d0d0d; }
+
+  /* Page width wrapper */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+
+  /* Nav bar with the back link */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,13,13,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:0.5px solid var(--border);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between; height:76px;
+  }
+  .nav-mark{ height:22px; width:auto; }
+  .nav-mark-link{ display:inline-flex; align-items:center; }
+  .nav-back{
+    font-size:13px;
+    color:var(--text-dim);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:color .15s ease;
+  }
+  .nav-back:hover{ color:var(--text); }
+
+  /* Press page heading */
+  .press-hero{ padding:72px 0 40px; }
+  .press-hero h1{ font-size:clamp(28px,4vw,42px); margin-bottom:16px; }
+  .press-hero p{ color:var(--text-dim); font-size:15px; max-width:60ch; margin:0; }
+
+  /* Photo grid */
+  .press-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+    padding:24px 0 88px;
+  }
+  /* Photo cards and their fade in */
+  .press-item{
+    position:relative;
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    background:var(--surface);
+    border:0.5px solid var(--border);
+    aspect-ratio:3/4;
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .press-item.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .press-item{ opacity:1; transform:none; transition:none; }
+  }
+  /* Photo and hover overlay */
+  .press-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .press-item::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 45%);
+    opacity:0;
+    transition:opacity .2s ease;
+  }
+  .press-item:hover::after{ opacity:1; }
+  /* Download button */
+  .press-download{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:var(--surface-2);
+    border:0.5px solid var(--border-strong);
+    border-radius:20px;
+    padding:8px 14px 8px 10px;
+    font-size:12px;
+    color:var(--text);
+    text-decoration:none;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .2s ease, transform .2s ease, border-color .15s ease, color .15s ease;
+  }
+  .press-item:hover .press-download{ opacity:1; transform:translateY(0); }
+  .press-download:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* Footer */
+  footer{
+    border-top:0.5px solid var(--border);
+    padding:40px 0;
+  }
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-mark{ height:16px; width:auto; opacity:0.8; }
+  .footer-links{ display:flex; gap:24px; list-style:none; padding:0; margin:0; font-size:13px; color:var(--text-faint); }
+  .footer-links a{ text-decoration:none; }
+  .footer-links a:hover{ color:var(--text-dim); }
+
+  /* Smaller screens */
+  @media (max-width: 900px){
+    .press-grid{ grid-template-columns:repeat(3, 1fr); }
+  }
+  @media (max-width: 640px){
+    .press-grid{ grid-template-columns:repeat(2, 1fr); gap:10px; }
+    .press-download{ opacity:1; transform:none; }
+    .press-item::after{ opacity:1; }
+  }
+  /* Click to download and the download all button */
+  .press-item{ cursor:pointer; }
+  .press-all{ display:inline-flex; margin-top:18px; padding:11px 18px; border:1px solid var(--border-strong); border-radius:999px; color:var(--text); text-decoration:none; font-size:13px; transition:border-color .15s ease, color .15s ease; }
+  .press-all:hover{ border-color:var(--accent); color:var(--accent); }
+  /* Touch screens have no hover so the download button stays visible */
+  @media (hover:none){
+    .press-download{ opacity:1; transform:none; padding:10px 14px 10px 12px; }
+    .press-item::after{ opacity:1; }
+  }
