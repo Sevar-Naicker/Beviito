@@ -174,3 +174,6 @@
   .press-item:focus-within .press-download{ opacity:1; transform:translateY(0); }
   .press-item:focus-within::after{ opacity:1; }
   .press-download:active{ transform:scale(0.97); }
+
+  /* Page background photo, greyscale and darkened so the content stays readable */
+  .press-bg{ position:fixed; inset:0; z-index:-1; background:linear-gradient(rgba(13,13,13,0.72), rgba(13,13,13,0.9)), url('Media/Press/press-bg.jpg') center 30% / cover no-repeat; pointer-events:none; }
