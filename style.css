@@ -1129,3 +1129,48 @@
   .lenis.lenis-smooth{ scroll-behavior:auto !important; }
   .lenis.lenis-stopped{ overflow:hidden; }
   .lenis.lenis-scrolling iframe{ pointer-events:none; }
+
+  /* Small print under forms and the footer button that reopens the card */
+  .form-note{ font-size:12px; line-height:1.5; color:var(--text-faint); text-align:center; margin:0; }
+  .footer-link-btn{ background:none; border:0; padding:0; font:inherit; color:inherit; cursor:pointer; }
+  .footer-link-btn:hover{ color:var(--text-dim); }
+  .join-done[hidden], .join-body[hidden]{ display:none; }
+  .join-body, .join-done{ display:flex; flex-direction:column; gap:10px; }
+  .join-card .form-error{ margin:0; }
+
+  /* Mailing list corner card */
+  .join-card{ position:fixed; right:24px; bottom:24px; z-index:60; width:340px; padding:22px 22px 18px; border-radius:16px; background:rgba(20,20,20,0.72); -webkit-backdrop-filter:blur(16px) saturate(1.2); backdrop-filter:blur(16px) saturate(1.2); border:1px solid rgba(255,255,255,0.14); box-shadow:0 20px 50px rgba(0,0,0,0.5); display:flex; flex-direction:column; gap:10px; opacity:0; visibility:hidden; transform:translateY(24px); transition:opacity .4s ease, transform .4s ease, visibility 0s linear .4s; }
+  .join-card.show{ opacity:1; visibility:visible; transform:translateY(0); transition:opacity .4s ease, transform .4s ease; }
+  .join-card h3{ font-family:'Archivo',sans-serif; font-weight:900; font-size:18px; line-height:1.2; margin:0; padding-right:26px; }
+  .join-card p{ margin:0; color:var(--text-dim); font-size:13px; line-height:1.5; }
+  .join-card .form-note{ margin:2px 0 0; text-align:left; }
+  .join-row{ display:flex; gap:8px; margin-top:4px; }
+  .join-row input{ flex:1; min-width:0; }
+  .join-row .btn-primary{ justify-content:center; }
+  .join-close{ position:absolute; top:10px; right:10px; width:30px; height:30px; display:flex; align-items:center; justify-content:center; background:transparent; border:0; color:var(--text-dim); border-radius:8px; cursor:pointer; }
+  .join-close:hover{ color:var(--text); }
+  @media (max-width:520px){
+    .join-card{ left:10px; right:10px; bottom:10px; width:auto; padding:12px 12px 10px; gap:8px; border-radius:14px; }
+    .join-card h3{ font-size:14px; padding-right:30px; }
+    .join-body > p:not(.form-note){ display:none; }
+    .join-card .form-note{ font-size:11px; line-height:1.4; }
+    .join-row{ margin-top:0; }
+    .join-row input{ padding:10px 12px; font-size:14px; }
+    .join-row .btn-primary{ padding:10px 18px; }
+    .join-close{ top:6px; right:6px; }
+  }
+  @media (prefers-reduced-motion: reduce){ .join-card, .join-card.show{ transition:none; transform:none; } }
+
+  /* Mailing list card photo */
+  .join-photo{ display:block; max-width:none; width:calc(100% + 44px); height:128px; margin:-22px -22px 6px; object-fit:cover; object-position:22% 50%; border-radius:16px 16px 0 0; -webkit-mask-image:linear-gradient(#000 60%, transparent); mask-image:linear-gradient(#000 60%, transparent); }
+  .join-close{ background:rgba(0,0,0,0.45); color:#fff; border-radius:50%; }
+  @media (max-width:520px){
+    .join-photo{ width:calc(100% + 28px); height:104px; margin:-12px -14px 2px; border-radius:14px 14px 0 0; object-position:22% 50%; -webkit-mask-image:linear-gradient(#000 60%, transparent); mask-image:linear-gradient(#000 60%, transparent); }
+    .join-card{ padding:12px 14px 10px; }
+    .join-row{ flex-direction:row; }
+    .join-row .btn-primary{ flex:none; }
+  }
+
+  /* Mailing list card photo is greyscale like the rest of the site and returns to colour on hover */
+  .join-photo{ filter:grayscale(1); transition:filter .5s ease; }
+  .join-card:hover .join-photo{ filter:grayscale(0); }
