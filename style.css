@@ -1100,3 +1100,32 @@
     .gigs-billboard{ padding:60px 0; }
     .gigs-bg-scrim{ background:linear-gradient(180deg, var(--bg) 0%, rgba(13,13,13,0.45) 14%, rgba(13,13,13,0.6) 86%, var(--bg) 100%); }
   }
+
+  /* Polish: skip link, load veil, keyboard focus and touch */
+  /* Skip link, hidden until a keyboard user tabs to it */
+  .skip-link{ position:fixed; left:16px; top:16px; z-index:10000; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; background:var(--accent); color:#0d0d0d; padding:10px 18px; border-radius:8px; font:600 14px 'Inter',sans-serif; text-decoration:none; }
+  .skip-link:focus{ width:auto; height:auto; overflow:visible; clip-path:none; }
+  main:focus{ outline:none; }
+
+  /* Page load veil, the page fades in from the background colour */
+  body::before{ content:''; position:fixed; inset:0; z-index:9999; background:var(--bg); pointer-events:none; animation:pageVeil .6s ease .05s both; }
+  @keyframes pageVeil{ from{ opacity:1; visibility:visible; } to{ opacity:0; visibility:hidden; } }
+  @media (prefers-reduced-motion: reduce){ body::before{ display:none; } }
+
+  /* Touch: no tap delay and a quick press response */
+  a, button, .tile, .panel-link{ touch-action:manipulation; }
+  .btn-primary:active, .btn-secondary:active, .nav-cta:active, .platform-btn:active{ transform:scale(0.97); }
+  .menu-toggle:active, .menu-close:active{ opacity:0.7; }
+  .site-menu-links a:active{ color:var(--accent); }
+  .panel-link:active{ filter:grayscale(0) brightness(1); }
+
+  /* Keyboard focus on a story panel opens it like hover */
+  .panel-link:focus-visible{ flex:3.4; filter:grayscale(0) brightness(1); outline:2px solid var(--accent); outline-offset:-6px; }
+  .panel-link:focus-visible .panel-tag{ opacity:1; transform:translateY(0); }
+  @media (max-width:860px){ .panel-link:focus-visible{ flex:none; } }
+
+  /* Smooth scroll (Lenis) */
+  html.lenis, html.lenis body{ height:auto; }
+  .lenis.lenis-smooth{ scroll-behavior:auto !important; }
+  .lenis.lenis-stopped{ overflow:hidden; }
+  .lenis.lenis-scrolling iframe{ pointer-events:none; }

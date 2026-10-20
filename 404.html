@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found — Beviito</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* This file contains the Beviito 404 page, it is self contained so it works from any URL depth */
+
+  /* Page defaults */
+  *{ box-sizing:border-box; margin:0; }
+  html, body{ height:100%; }
+  body{
+    background:#0d0d0d;
+    color:#f2f2ee;
+    font-family:'Inter', sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    text-align:center;
+  }
+  ::selection{ background:#e8501c; color:#0d0d0d; }
+
+  /* Content */
+  .wrap{ display:flex; flex-direction:column; align-items:center; gap:22px; max-width:520px; }
+  .mark{ height:22px; width:auto; opacity:0.9; }
+  .code{ font:500 14px 'IBM Plex Mono', monospace; letter-spacing:.18em; color:#e8501c; text-transform:uppercase; }
+  h1{ font-family:'Archivo', sans-serif; font-weight:900; font-size:clamp(40px, 9vw, 76px); line-height:.95; text-transform:uppercase; }
+  p{ color:#9a9a94; font-size:16px; line-height:1.6; }
+
+  /* Equaliser bars */
+  .eq{ display:flex; align-items:flex-end; gap:4px; height:26px; }
+  .eq span{ width:4px; height:100%; background:#e8501c; border-radius:2px; transform-origin:bottom; animation:eq 1.1s ease-in-out infinite; }
+  .eq span:nth-child(2){ animation-delay:.15s; }
+  .eq span:nth-child(3){ animation-delay:.3s; }
+  .eq span:nth-child(4){ animation-delay:.45s; }
+  @keyframes eq{ 0%, 100%{ transform:scaleY(.35); } 50%{ transform:scaleY(1); } }
+  @media (prefers-reduced-motion: reduce){ .eq span{ animation:none; transform:scaleY(.7); } }
+
+  /* Buttons */
+  .actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px; }
+  .btn{ display:inline-block; padding:13px 26px; border-radius:10px; font:600 15px 'Inter', sans-serif; text-decoration:none; border:1px solid transparent; transition:background .15s ease, border-color .15s ease, transform .1s ease; touch-action:manipulation; }
+  .btn-primary{ background:#e8501c; color:#0d0d0d; }
+  .btn-primary:hover{ background:#f0623a; }
+  .btn-secondary{ border-color:#3a3a38; color:#f2f2ee; }
+  .btn-secondary:hover{ border-color:#9a9a94; }
+  .btn:active{ transform:scale(.97); }
+  .btn:focus-visible{ outline:2px solid #e8501c; outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<!-- Not found message -->
+<main class="wrap">
+  <img class="mark" id="mark" alt="Beviito">
+  <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="code">Error 404</div>
+  <h1>That track isn't on the set list</h1>
+  <p>The page you were looking for has moved or never existed. Head back to the main site and keep the night going.</p>
+  <div class="actions">
+    <a class="btn btn-primary" id="home" href="index.html">Back to Beviito</a>
+    <a class="btn btn-secondary" id="press" href="press.html">Press kit</a>
+  </div>
+</main>
+
+<script>
+  // This file contains the 404 page script: it works out where the site starts, because this page can be shown from any URL depth
+
+  // The SiteRoot function returns the folder the site lives in
+  function SiteRoot()
+  {
+    if (location.protocol === 'file:') return '';
+    const Parts = location.pathname.split('/').filter(Boolean);
+    return location.hostname.endsWith('github.io') && Parts.length ? '/' + Parts[0] + '/' : '/';
+  }
+
+  const Root = SiteRoot();
+  document.getElementById('home').href = Root + 'index.html';
+  document.getElementById('press').href = Root + 'press.html';
+  document.getElementById('mark').src = Root + 'Media/Logos/beviito-logo-white.png';
+  const Icon = document.createElement('link');
+  Icon.rel = 'icon';
+  Icon.href = Root + 'favicon.ico';
+  document.head.appendChild(Icon);
+</script>
+</body>
+</html>

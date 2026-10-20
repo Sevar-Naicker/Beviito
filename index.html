@@ -3,13 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beviito — DJ</title>
+<title>Beviito — DJ &amp; Producer, Johannesburg</title>
+<meta name="description" content="Beviito is a Johannesburg DJ and producer in the Afro House, Deep House and Tech House scenes. Listen to the tracks and book him for your event.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="canonical" href="https://sevar-naicker.github.io/Beviito/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="Media/Icons/favicon-32.png">
+<link rel="apple-touch-icon" href="Media/Icons/apple-touch-icon.png">
+<!-- Link preview for WhatsApp, Instagram and search -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beviito">
+<meta property="og:title" content="Beviito — DJ &amp; Producer, Johannesburg">
+<meta property="og:description" content="Beviito is a Johannesburg DJ and producer in the Afro House, Deep House and Tech House scenes. Listen to the tracks and book him for your event.">
+<meta property="og:url" content="https://sevar-naicker.github.io/Beviito/">
+<meta property="og:image" content="https://sevar-naicker.github.io/Beviito/Media/Icons/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beviito — DJ &amp; Producer, Johannesburg">
+<meta name="twitter:description" content="Beviito is a Johannesburg DJ and producer in the Afro House, Deep House and Tech House scenes. Listen to the tracks and book him for your event.">
+<meta name="twitter:image" content="https://sevar-naicker.github.io/Beviito/Media/Icons/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Beviito",
+  "description": "Johannesburg-based DJ and producer in the Afro House, Deep House and Tech House scenes.",
+  "url": "https://sevar-naicker.github.io/Beviito/",
+  "image": "https://sevar-naicker.github.io/Beviito/Media/Icons/og-image.jpg",
+  "genre": ["Afro House", "Deep House", "Tech House"],
+  "sameAs": [
+    "https://open.spotify.com/artist/5U9Ge8YwjhQzHGxZ9Eluz8",
+    "https://www.instagram.com/beviito/",
+    "https://www.mixcloud.com/beviito/",
+    "https://music.youtube.com/channel/UCJVxyj3GbGAh3QTfbw_E7AQ",
+    "https://music.apple.com/za/artist/beviito/1609881457"
+  ]
+}
+</script>
 </head>
 <body>
+
+<!-- Skip link for keyboard users -->
+<a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Navigation Bar Start -->
 <nav>
@@ -43,7 +83,7 @@
 <!-- Navigation Bar End -->
 
 <!-- Social Media Buttons (With Links) Start -->
-<div class="site-menu" id="siteMenu">
+<div class="site-menu" id="siteMenu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="site-menu-bar">
     <div class="nav-socials">
       <a href="https://open.spotify.com/artist/5U9Ge8YwjhQzHGxZ9Eluz8" aria-label="Spotify" target="_blank" rel="noopener">
@@ -77,6 +117,7 @@
 </div>
 <!-- Social Media Buttons (With Links) End -->
 
+<main id="main" tabindex="-1">
 <!-- Launch Section (Main Page) Start -->
 <header class="hero" id="heroIntro">
   <video class="hero-bg-photo" autoplay muted loop playsinline poster="Media/Videos/interlude-poster.jpg">
@@ -418,6 +459,8 @@
 </section>
 <!-- Booking Section (Active Work Email) End -->
 
+</main>
+
 <!-- Footer Start -->
 <footer>
   <div class="wrap footer-stack">
@@ -452,8 +495,27 @@
 </footer>
 <!-- Footer End -->
 
+<script src="Media/Scripts/lenis.min.js"></script>
 <script>
-  // This file contains the scripts for the main page: menu, logo reveal, comments, stream deck and booking form
+  // This file contains the scripts for the main page: smooth scroll, menu, logo reveal, comments, stream deck and booking form
+
+  // Smooth scroll: Lenis eases the mouse wheel on desktop, phones and tablets keep their own touch scrolling
+  (function StartSmoothScroll()
+  {
+    const Fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const ReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!window.Lenis || !Fine || ReduceMotion) return;
+    const Smooth = new Lenis({ lerp: 0.1, anchors: true });
+    window.BeviitoSmooth = Smooth;
+
+    // The Frame function gives Lenis the time on every frame
+    function Frame(Time)
+    {
+      Smooth.raf(Time);
+      requestAnimationFrame(Frame);
+    }
+    requestAnimationFrame(Frame);
+  })();
 
   // Menu: opens and closes the full-screen menu and pulses the burger lines on hover
   (function StartMenu()
@@ -463,36 +525,46 @@
     const Menu = document.getElementById('siteMenu');
     if (!Toggle || !Menu) return;
 
-    // The OpenMenu function shows the menu
+    // The Behind list is the page underneath the menu, it is switched off while the menu is open so Tab stays inside the menu
+    const Behind = Array.from(document.querySelectorAll('.skip-link, nav, main, footer'));
+
+    // The OpenMenu function shows the menu, pauses the page behind it and moves focus into it
     function OpenMenu()
     {
       Menu.classList.add('open');
       Toggle.classList.add('open');
       Toggle.setAttribute('aria-expanded', 'true');
       document.body.classList.add('menu-open');
+      Behind.forEach(Part => { Part.inert = true; });
+      if (window.BeviitoSmooth) window.BeviitoSmooth.stop();
+      setTimeout(() => Close.focus(), 0);
     }
 
-    // The CloseMenu function hides the menu
-    function CloseMenu()
+    // The CloseMenu function hides the menu, wakes the page and hands focus back when asked
+    function CloseMenu(ReturnFocus)
     {
+      const WasOpen = Menu.classList.contains('open');
       Menu.classList.remove('open');
       Toggle.classList.remove('open');
       Toggle.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('menu-open');
+      Behind.forEach(Part => { Part.inert = false; });
+      if (window.BeviitoSmooth) window.BeviitoSmooth.start();
+      if (WasOpen && ReturnFocus === true) Toggle.focus();
     }
 
     Toggle.addEventListener('click', () =>
     {
-      Menu.classList.contains('open') ? CloseMenu() : OpenMenu();
+      Menu.classList.contains('open') ? CloseMenu(true) : OpenMenu();
     });
-    Close.addEventListener('click', CloseMenu);
+    Close.addEventListener('click', () => CloseMenu(true));
     Menu.querySelectorAll('.site-menu-links a').forEach(Link =>
     {
-      Link.addEventListener('click', CloseMenu);
+      Link.addEventListener('click', () => CloseMenu(false));
     });
     document.addEventListener('keydown', (event) =>
     {
-      if (event.key === 'Escape') CloseMenu();
+      if (event.key === 'Escape') CloseMenu(true);
     });
 
     // Burger hover: the three lines shrink and grow like EQ bars
